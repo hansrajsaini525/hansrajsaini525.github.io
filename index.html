@@ -3,109 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forex Trading Notes - Hansraj Saini</title>
+    <title>Forex Trading by Raj Trader - Hansraj Saini</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --bg-dark: #0f172a;
-            --accent-blue: #38bdf8;
-            --highlight-yellow: #ffff00; /* Pure Yellow for Highlight */
+            --card-bg: #1e293b;
+            --primary-blue: #38bdf8;
+            --secondary-pink: #f43f5e;
+            --highlight-yellow: #ffff00;
+            --whatsapp-green: #25d366;
+            --text-main: #f8fafc;
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-dark);
-            color: white;
-            padding: 20px;
-            line-height: 1.8;
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: 850px;
-            margin: auto;
-        }
-
-        h1 {
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 50px 20px;
             text-align: center;
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            border-bottom: 2px solid #1e293b;
-            padding-bottom: 10px;
+            border-bottom: 4px solid var(--secondary-pink);
         }
 
-        .notes-section {
-            background: #1e293b;
+        h1 { font-size: 2.5rem; margin: 0; color: var(--primary-blue); text-transform: uppercase; }
+
+        .container { max-width: 900px; margin: 30px auto; padding: 20px; }
+
+        .section-box {
+            background: var(--card-bg);
             padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Yellow Highlight Style */
-        .yellow-mark {
+        h2 { color: var(--secondary-pink); border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+
+        /* Yellow Highlighted Notes */
+        .yellow-note {
             background-color: var(--highlight-yellow);
-            color: #000; /* Black text on yellow background */
-            padding: 2px 5px;
-            font-weight: bold;
-            border-radius: 3px;
-            display: inline;
-        }
-
-        .point-box {
-            margin-bottom: 25px;
+            color: #000;
             padding: 10px;
-            border-left: 4px solid var(--accent-blue);
+            margin-bottom: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: block;
+            border-left: 5px solid var(--secondary-pink);
         }
 
-        h3 {
-            color: var(--accent-blue);
-            margin-bottom: 5px;
+        /* Form Styles */
+        input, textarea {
+            width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px;
+            border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box;
+        }
+
+        .btn-submit {
+            background: var(--primary-blue); color: #000; border: none;
+            padding: 15px; font-weight: bold; border-radius: 8px; cursor: pointer;
+            width: 100%; font-size: 1.1rem; transition: 0.3s;
+        }
+
+        .btn-submit:hover { background: #7dd3fc; transform: translateY(-2px); }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
+            background-color: var(--whatsapp-green); color: white; border-radius: 50px;
+            text-align: center; font-size: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 100; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: 0.3s;
+        }
+
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        footer { background: #020617; padding: 40px 20px; text-align: center; border-top: 2px solid #1e293b; }
+        
+        .owner-details {
+            border: 1px dashed var(--primary-blue); padding: 15px;
+            display: inline-block; border-radius: 10px; background: rgba(56,189,248,0.05);
         }
     </style>
 </head>
 <body>
 
+<header>
+    <h1>Forex Trading by Raj Trader</h1>
+    <p>Expertise & Education by Hansraj Saini</p>
+</header>
+
 <div class="container">
-    <header>
-        <h1>Forex Trading by Raj Trader</h1>
-        <p style="text-align:center;">Expert: Hansraj Saini | Mob: 8000651656</p>
-    </header>
+    <div class="section-box">
+        <h2>Forex Trading Notes (Hindi)</h2>
+        <span class="yellow-note">1. फॉरेक्स (Forex) क्या है?: यह दुनिया का सबसे बड़ा मार्केट है जहाँ अलग-अलग देशों की करेंसी को आपस में बदला जाता है।</span>
+        <span class="yellow-note">2. करेंसी पेयर्स: ट्रेडिंग हमेशा जोड़ों में होती है, जैसे EUR/USD. इसमें एक करेंसी खरीदी और दूसरी बेची जाती है।</span>
+        <span class="yellow-note">3. मार्केट टाइमिंग: फॉरेक्स मार्केट हफ्ते में 5 दिन और 24 घंटे खुला रहता है, जिससे आप कभी भी ट्रेड कर सकते हैं।</span>
+        <span class="yellow-note">4. पिप (Pip) और स्प्रेड: पिप मार्केट के छोटे बदलाव को कहते हैं, और खरीद-बिक्री के अंतर को स्प्रेड कहा जाता है।</span>
+        <span class="yellow-note">5. रिस्क मैनेजमेंट: हमेशा 'Stop Loss' का उपयोग करें। ट्रेडिंग में अपने रिस्क को मैनेज करना ही सफलता की कुंजी है।</span>
+    </div>
 
-    <div class="notes-section">
-        <h2 style="text-align: center; color: #f43f5e;">Forex Trading Basic Notes</h2>
-
-        <div class="point-box">
-            <h3>1. Forex Trading क्या है?</h3>
-            <span class="yellow-mark">फॉरेक्स (Forex) का अर्थ है फॉरेन एक्सचेंज। इसमें एक देश की करेंसी को दूसरे देश की करेंसी के साथ बदला जाता है। यह दुनिया का सबसे बड़ा और सबसे लिक्विड (Liquid) मार्केट है जहां रोजाना खरबों डॉलर का व्यापार होता है।</span>
-        </div>
-
-        <div class="point-box">
-            <h3>2. करेंसी पेयर्स (Currency Pairs)</h3>
-            <span class="yellow-mark">फॉरेक्स में ट्रेडिंग हमेशा जोड़ियों में होती है। जैसे EUR/USD, GBP/USD. इसमें पहली करेंसी 'Base' होती है और दूसरी 'Quote'। जब आप एक को खरीदते हैं, तो आप दूसरी को बेच रहे होते हैं।</span>
-        </div>
-
-        <div class="point-box">
-            <h3>3. पिप (Pip) क्या है?</h3>
-            <span class="yellow-mark">पिप (Point in Percentage) करेंसी के मूल्य में होने वाले सबसे छोटे बदलाव को कहते हैं। इसी पिप के उतार-चढ़ाव से ट्रेडर अपना प्रॉफिट या लॉस कैलकुलेट करते हैं।</span>
-        </div>
-
-        <div class="point-box">
-            <h3>4. लिवरेज (Leverage)</h3>
-            <span class="yellow-mark">लिवरेज एक तरह का लोन है जो ब्रोकर आपको देता है। इससे आप कम पैसों में बड़ी ट्रेड खोल सकते हैं। ध्यान रहे, ज्यादा लिवरेज में रिस्क भी ज्यादा होता है।</span>
-        </div>
-
-        <div class="point-box">
-            <h3>5. स्प्रेड (Spread)</h3>
-            <span class="yellow-mark">खरीदने की कीमत (Ask) और बेचने की कीमत (Bid) के बीच के अंतर को 'स्प्रेड' कहते हैं। यह ब्रोकर की फीस या कमीशन की तरह काम करता है।</span>
-        </div>
-
-        <div class="point-box">
-            <h3>6. रिस्क मैनेजमेंट (Risk Management)</h3>
-            <span class="yellow-mark">एक सफल ट्रेडर वही है जो अपने नुकसान को कंट्रोल करना जानता है। हमेशा 'Stop Loss' का उपयोग करें ताकि बड़ा नुकसान होने से बचा जा सके।</span>
-        </div>
+    <div class="section-box">
+        <h2>Contact For Personal Training</h2>
+        <p>अपनी डिटेल्स भरें, हम आपसे जल्द संपर्क करेंगे:</p>
+        <form action="https://formspree.io/f/sainihansraj0707@gmail.com" method="POST">
+            <input type="text" name="Name" placeholder="आपका नाम" required>
+            <input type="text" name="Mobile" placeholder="आपका मोबाइल नंबर" required>
+            <textarea name="Message" rows="4" placeholder="आपका सवाल या मैसेज..." required></textarea>
+            <button type="submit" class="btn-submit">Submit Details</button>
+        </form>
     </div>
 </div>
 
-<footer style="text-align: center; margin-top: 40px; color: #64748b;">
-    <p>Contact: <strong>Hansraj Saini</strong> | Gmail: <strong>sainihansraj0707@gmail.com</strong></p>
+<a href="https://wa.me/918000651656?text=Namaste%20Hansraj%20Saini%20ji,%20mujhe%20Forex%20Trading%20seekhni%20hai." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<footer>
+    <div class="owner-details">
+        <h3 style="color: var(--secondary-pink); margin-top: 0;">Business Owner</h3>
+        <p><strong>Name:</strong> Hansraj Saini</p>
+        <p><strong>Mobile:</strong> 8000651656</p>
+        <p><strong>Email:</strong> sainihansraj0707@gmail.com</p>
+    </div>
+    <p style="margin-top: 20px; font-size: 0.8rem; color: #475569;">&copy; 2026 Forex Trading by Raj Trader.</p>
 </footer>
 
 </body>
