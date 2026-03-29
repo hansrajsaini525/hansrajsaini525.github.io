@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raj Trader - Forex SMC Expert</title>
+    <title>Forex Trading by Raj Trader - Hansraj Saini</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -32,7 +32,7 @@
             border-bottom: 4px solid var(--pink);
         }
 
-        h1 { font-size: 2.5rem; color: var(--blue); margin: 0; text-transform: uppercase; }
+        h1 { font-size: 2.5rem; color: var(--blue); margin: 0; text-transform: uppercase; letter-spacing: 2px; }
 
         .container { max-width: 900px; margin: 30px auto; padding: 20px; }
 
@@ -47,10 +47,11 @@
 
         h2 { color: var(--blue); border-bottom: 2px solid #334155; padding-bottom: 10px; margin-top: 0; }
 
+        /* Forex Basics Grid (Restore Original Hindi Format) */
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin-top: 20px;
         }
 
@@ -61,52 +62,52 @@
             border-left: 4px solid var(--pink);
         }
 
-        .info-card h3 { color: var(--yellow); margin: 0 0 10px 0; font-size: 1.1rem; }
+        .info-card h3 { color: var(--yellow); margin-top: 0; font-size: 1.1rem; }
 
-        /* QR Section Styling */
+        .yellow-note {
+            background-color: var(--yellow);
+            color: #000;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Paid Course Button & Section */
+        .paid-nav-btn {
+            background: linear-gradient(45deg, var(--pink), #fb7185);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
         .qr-wrapper {
             background: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px;
             display: inline-block;
             margin: 20px 0;
             text-align: center;
         }
-        
-        .qr-wrapper img { 
-            width: 250px; 
-            height: auto; 
-            display: block; 
-            margin: 0 auto; 
-            border: 1px solid #ddd;
-        }
+        .qr-wrapper img { width: 250px; height: auto; }
 
-        .qr-wrapper p { color: #000; font-weight: bold; margin-top: 10px; font-size: 0.9rem; }
-
-        /* Navigation Button */
-        .paid-btn {
-            background: linear-gradient(45deg, var(--pink), #fb7185);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 15px;
-            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
-            transition: 0.3s;
-        }
-        .paid-btn:hover { transform: translateY(-3px); }
-
-        /* Form Styling */
+        /* Form & Others */
         input, textarea {
-            width: 100%; padding: 14px; margin: 10px 0; border-radius: 10px;
+            width: 100%; padding: 14px; margin: 12px 0; border-radius: 10px;
             border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box;
         }
 
         .btn-submit {
             background: var(--blue); color: #000; border: none; padding: 16px; 
-            font-weight: bold; border-radius: 10px; width: 100%; cursor: pointer; font-size: 1.1rem;
+            font-weight: bold; border-radius: 10px; width: 100%; cursor: pointer;
         }
 
         .whatsapp-float {
@@ -115,61 +116,74 @@
             display: flex; align-items: center; justify-content: center; font-size: 38px; z-index: 100;
         }
 
-        footer { background: #020617; padding: 50px 20px; text-align: center; border-top: 1px solid #1e293b; }
+        footer { background: #020617; padding: 50px 20px; text-align: center; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Raj Trader - Forex SMC</h1>
-    <p>Professional Smart Money Concept (SMC) Guidance</p>
-    <a href="#paid-section" class="paid-btn"><i class="fas fa-crown"></i> Get Paid SMC PDF (₹999)</a>
+    <h1>Raj Trader - Forex Expert</h1>
+    <p>Professional Guidance: Hansraj Saini</p>
+    <a href="#paid-section" class="paid-nav-btn"><i class="fas fa-crown"></i> Paid SMC PDF (₹999)</a>
 </header>
 
 <div class="container">
     
     <div class="section-box">
-        <h2>Forex Trading क्या है?</h2>
+        <h2><i class="fas fa-chart-line"></i> Forex Trading क्या है?</h2>
+        <p>फॉरेक्स (Forex) का मतलब है Foreign Exchange। यह दुनिया का सबसे बड़ा वित्तीय बाजार है जहाँ मुद्राओं का व्यापार होता है।</p>
+        
         <div class="info-grid">
-            <div class="info-card"><h3>1. Currency Pairs</h3><p>EUR/USD, GBP/USD jaisi currencies mein trade.</p></div>
-            <div class="info-card"><h3>2. 24/5 Market</h3><p>Hafte mein 5 din, 24 ghante trading suvidha.</p></div>
-            <div class="info-card"><h3>3. High Liquidity</h3><p>Fast entry aur exit ki suvidha.</p></div>
-            <div class="info-card"><h3>4. Leverage</h3><p>Kam paison se badi trade lene ki kshamta.</p></div>
+            <div class="info-card">
+                <h3>1. Currency Pairs</h3>
+                <p>फॉरेक्स में हमेशा दो देशों की करेंसी के बीच ट्रेड होता है। जैसे EUR/USD या USD/INR।</p>
+            </div>
+            <div class="info-card">
+                <h3>2. 24/5 Market</h3>
+                <p>यह मार्केट हफ्ते में 5 दिन और 24 घंटे खुला रहता है। आप अपनी सुविधा से ट्रेड कर सकते हैं।</p>
+            </div>
+            <div class="info-card">
+                <h3>3. High Liquidity</h3>
+                <p>यहाँ खरीदार और विक्रेता हमेशा मौजूद रहते हैं, जिससे ट्रेड तुरंत ओपन और क्लोज होती है।</p>
+            </div>
+            <div class="info-card">
+                <h3>4. Leverage</h3>
+                <p>कम पैसों के साथ बड़ी ट्रेड ले सकते हैं, लेकिन इसके लिए सही रिस्क मैनेजमेंट ज़रूरी है।</p>
+            </div>
+        </div>
+
+        <div class="yellow-note">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>नोट: बिना सीखे ट्रेडिंग करना नुकसानदेह हो सकता है, लेकिन SMC के साथ यह एक सफल बिजनेस है।</span>
         </div>
     </div>
 
     <div id="paid-section" class="section-box" style="border: 2px solid var(--pink); text-align: center;">
         <h2 style="color: var(--pink);"><i class="fas fa-gem"></i> Smart Money Concept (SMC) Paid PDF</h2>
-        <p>Advanced Trading secrets - Learn Liquidity, Order Blocks & Structure.</p>
-        <p style="font-size: 1.5rem; color: var(--yellow); font-weight: 800; margin: 15px 0;">Price: ₹999 Only</p>
+        <p>Advance SMC Course: Price <b>₹999</b></p>
         
         <div class="qr-wrapper">
             <img src="qrhansraj.png.jpeg" alt="Payment QR Code">
-            <p>Scan to Pay (Hansraj Saini)</p>
+            <p style="color: #000; font-weight: bold; margin-top: 10px;">Scan to Pay (Hansraj Saini)</p>
         </div>
 
-        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; text-align: left; font-size: 0.9rem; margin-top: 10px;">
-            <b>Payment Steps:</b><br>
-            1. Upar QR scan karke ₹999 pay karein.<br>
-            2. Screenshot niche WhatsApp button par bhejein.<br>
-            3. Aapko PDF link turant mil jayega.
-        </div>
-
-        <a href="https://wa.me/918000651656?text=Namaste%20Raj%20Trader,%20maine%20SMC%20PDF%20ke%20liye%20payment%20kar%20diya%20hai.%20Ye%20raha%20screenshot." 
-           style="background: var(--green); color: white; padding: 15px; text-decoration: none; border-radius: 10px; display: block; font-weight: bold; margin-top: 15px;">
-           <i class="fab fa-whatsapp"></i> Send Payment Screenshot
+        <a href="https://wa.me/918000651656?text=Maine%20SMC%20PDF%20ka%20payment%20kar%20diya%20hai" 
+           style="background: var(--green); color: white; padding: 15px; text-decoration: none; border-radius: 10px; display: block; font-weight: bold; margin-top: 10px;">
+           <i class="fab fa-whatsapp"></i> Send Screenshot
         </a>
     </div>
 
     <div class="section-box">
-        <h2>Learn Professional Trading</h2>
+        <h2><i class="fas fa-user-graduate"></i> Learn Professional Trading</h2>
         <form name="google-sheet-form">
-            <input type="text" name="Name" placeholder="Name" required>
-            <input type="text" name="Mobile" placeholder="WhatsApp Number" required>
-            <textarea name="Message" rows="3" placeholder="SMC ke bare mein kya seekhna hai?" required></textarea>
+            <input type="text" name="Name" placeholder="आपका नाम" required>
+            <input type="text" name="Mobile" placeholder="व्हाट्सएप नंबर" required>
+            <textarea name="Message" rows="4" placeholder="आपका सवाल या संदेश..." required></textarea>
             <button type="submit" class="btn-submit" id="submit-btn">Submit Details</button>
         </form>
-        <div id="msg" style="display:none; color: var(--green); margin-top:15px; text-align:center;">Success! Data saved.</div>
+        <div id="msg" style="margin-top: 15px; color: var(--green); font-weight: bold; display: none; text-align: center;">
+            Success! डेटा सुरक्षित रूप से सेव हो गया है।
+        </div>
     </div>
 
 </div>
@@ -177,19 +191,25 @@
 <a href="https://wa.me/918000651656" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <footer>
-    <p>Hansraj Saini | WhatsApp: 8000651656 | Email: sainihansraj0707@gmail.com</p>
+    <p>Hansraj Saini (Raj Trader) | Email: sainihansraj0707@gmail.com</p>
 </footer>
 
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwCyJU0JlDKBwPfaHR0Gg2w6YhP4SJsVZ7tB_ucKCX6yAqZ6ZXQJqeYZNVtIC8X6CvphA/exec'
     const form = document.forms['google-sheet-form']
     const btn = document.getElementById('submit-btn')
+    const successMsg = document.getElementById('msg')
 
     form.addEventListener('submit', e => {
-      e.preventDefault(); btn.disabled = true; btn.innerHTML = "Sending...";
+      e.preventDefault()
+      btn.disabled = true; btn.innerHTML = "Sending..."
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(res => { btn.disabled = false; btn.innerHTML = "Submit Details"; document.getElementById('msg').style.display="block"; form.reset(); })
-        .catch(err => { btn.disabled = false; alert("Error!"); });
+        .then(response => {
+            btn.innerHTML = "Submit Details"; btn.disabled = false;
+            successMsg.style.display = "block"; form.reset();
+            setTimeout(() => { successMsg.style.display = "none" }, 5000)
+        })
+        .catch(error => { btn.disabled = false; alert("Error!"); })
     })
 </script>
 
