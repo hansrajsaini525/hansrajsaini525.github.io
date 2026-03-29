@@ -44,6 +44,7 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
+        /* Yellow Highlighted Notes */
         .yellow-note {
             background-color: var(--highlight-yellow);
             color: #000;
@@ -58,6 +59,7 @@
         input, textarea {
             width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px;
             border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box;
+            font-size: 1rem;
         }
 
         .btn-submit {
@@ -66,6 +68,7 @@
             width: 100%; font-size: 1.1rem; transition: 0.3s;
         }
 
+        .btn-submit:hover { background: #7dd3fc; transform: scale(1.02); }
         .btn-submit:disabled { background: #64748b; cursor: not-allowed; }
 
         .whatsapp-float {
@@ -76,34 +79,41 @@
             text-decoration: none; transition: 0.3s;
         }
 
-        footer { background: #020617; padding: 40px 20px; text-align: center; }
+        footer { background: #020617; padding: 40px 20px; text-align: center; border-top: 1px solid #1e293b; }
+        
+        .owner-badge {
+            border: 1px dashed var(--primary-blue); padding: 15px;
+            display: inline-block; border-radius: 12px; background: rgba(56,189,248,0.05);
+        }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Forex Trading by Raj Trader</h1>
-    <p>Professional Guidance by Hansraj Saini</p>
+    <p>Professional Guidance: Hansraj Saini</p>
 </header>
 
 <div class="container">
     <div class="section-box">
-        <h2 style="color: var(--secondary-pink);">Forex Basics (Hindi Notes)</h2>
+        <h2 style="color: var(--secondary-pink);">Forex Basics (Hindi)</h2>
         <span class="yellow-note">➔ Forex Trading: यह विदेशी मुद्राओं का वैश्विक बाजार है जहाँ चौबीसों घंटे व्यापार होता है।</span>
-        <span class="yellow-note">➔ Currency Pairs: फॉरेक्स में हमेशा जोड़ियों (e.g. USD/INR) में ट्रेड किया जाता है।</span>
-        <span class="yellow-note">➔ Risk Management: बिना 'Stop Loss' के कभी ट्रेड न करें, यह आपके फंड को सुरक्षित रखता है।</span>
+        <span class="yellow-note">➔ Currency Pairs: यहाँ ट्रेडिंग हमेशा जोड़ियों में होती है जैसे EUR/USD.</span>
+        <span class="yellow-note">➔ Stop Loss: हमेशा स्टॉप लॉस का उपयोग करें ताकि आपका पैसा सुरक्षित रहे।</span>
     </div>
 
     <div class="section-box">
         <h2 style="color: var(--primary-blue);">Contact For Training</h2>
+        <p>विवरण भरें, डेटा सीधे Google Sheet में जाएगा:</p>
+        
         <form name="google-sheet-form">
             <input type="text" name="Name" placeholder="आपका नाम" required>
             <input type="text" name="Mobile" placeholder="आपका मोबाइल नंबर" required>
             <textarea name="Message" rows="4" placeholder="आपका सवाल..." required></textarea>
             <button type="submit" class="btn-submit" id="submit-btn">Submit Details</button>
         </form>
-        <div id="msg" style="margin-top: 15px; color: var(--whatsapp-green); font-weight: bold; display: none;">
-            Success! आपकी जानकारी सेव हो गई है।
+        <div id="msg" style="margin-top: 15px; color: var(--whatsapp-green); font-weight: bold; display: none; text-align: center;">
+            <i class="fas fa-check-circle"></i> Success! आपकी जानकारी सेव हो गई है।
         </div>
     </div>
 </div>
@@ -113,16 +123,16 @@
 </a>
 
 <footer>
-    <div style="border: 1px dashed var(--primary-blue); padding: 20px; display: inline-block; border-radius: 10px;">
+    <div class="owner-badge">
         <h3 style="margin:0; color: var(--secondary-pink);">Hansraj Saini</h3>
-        <p>Mobile: 8000651656</p>
-        <p>Gmail: sainihansraj0707@gmail.com</p>
+        <p>Mob: 8000651656 | Email: sainihansraj0707@gmail.com</p>
     </div>
+    <p style="margin-top: 20px; font-size: 0.8rem; color: #475569;">&copy; 2026 Forex Trading by Raj Trader.</p>
 </footer>
 
 <script>
-    // Aapka Naya Script URL yahan connect kar diya gaya hai
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxsJgj7EAhlRauy75Jj_52SecXtl53haXQTfaYt3Nr9dhte85_XKTWHojxg0g8WcdvLLQ/exec'
+    // Naya Updated Script URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwCyJU0JlDKBwPfaHR0Gg2w6YhP4SJsVZ7tB_ucKCX6yAqZ6ZXQJqeYZNVtIC8X6CvphA/exec'
     const form = document.forms['google-sheet-form']
     const btn = document.getElementById('submit-btn')
     const successMsg = document.getElementById('msg')
@@ -130,7 +140,7 @@
     form.addEventListener('submit', e => {
       e.preventDefault()
       btn.disabled = true
-      btn.innerHTML = "Sending..."
+      btn.innerHTML = "Sending Data..."
 
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => {
