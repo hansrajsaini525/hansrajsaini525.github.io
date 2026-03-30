@@ -6,52 +6,85 @@
     <title>Raj Trader - Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --bg: #0f172a; --card: #1e293b; --blue: #38bdf8; --pink: #f43f5e; --yellow: #ffff00; --text: #f8fafc; }
+        :root {
+            --bg: #0f172a; --card: #1e293b; --blue: #38bdf8;
+            --pink: #f43f5e; --yellow: #ffff00; --text: #f8fafc;
+        }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); margin: 0; line-height: 1.6; text-align: center; }
+        
+        /* Navigation Bar */
         nav { background: #1e293b; padding: 15px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; gap: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
         nav a { color: white; text-decoration: none; font-weight: bold; padding: 8px 15px; border-radius: 5px; }
         nav a:hover { background: var(--blue); color: #000; }
+
         header { padding: 60px 20px; border-bottom: 4px solid var(--pink); background: linear-gradient(135deg, #1e293b, #0f172a); }
+        
         .container { max-width: 900px; margin: 30px auto; padding: 20px; text-align: left; }
+        
         .section-box { background: var(--card); padding: 30px; border-radius: 20px; margin-bottom: 30px; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
-        .info-card { background: rgba(15, 23, 42, 0.5); padding: 15px; border-radius: 12px; border-left: 4px solid var(--pink); }
-        .yellow-note { background: var(--yellow); color: #000; padding: 20px; border-radius: 12px; font-weight: bold; margin: 25px 0; }
-        .disclaimer { font-size: 0.8rem; color: #94a3b8; border: 1px dashed #334155; padding: 15px; margin-top: 40px; text-align: left; }
+        
+        h2 { color: var(--blue); border-bottom: 1px solid #334155; padding-bottom: 10px; }
+
+        /* Yellow Highlighted Note */
+        .yellow-note {
+            background-color: var(--yellow);
+            color: #000;
+            padding: 20px;
+            border-radius: 12px;
+            font-weight: bold;
+            margin: 25px 0;
+        }
+
+        /* Disclaimer Section */
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            border: 1px dashed #334155;
+            padding: 15px;
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+
+        footer { padding: 40px; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="paidcourse.html">Courses</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-    <header>
-        <h1>Forex Trading by Raj Trader</h1>
-        <p>Hansraj Saini - Smart Money Concept Specialist</p>
-    </header>
-    <div class="container">
-        <div class="section-box">
-            <h2>Forex Trading क्या है?</h2>
-            <p>फॉरेक्स दुनिया का सबसे बड़ा मार्केट है जहाँ करेंसी पेयर्स में ट्रेड होता है।</p>
-            <div class="info-grid">
-                <div class="info-card"><h3>करेंसी पेयर्स</h3><p>EUR/USD जैसे पेयर्स में ट्रेडिंग होती है।</p></div>
-                <div class="info-card"><h3>24/5 मार्केट</h3><p>हफ्ते में 5 दिन और 24 घंटे खुला रहता है।</p></div>
-                <div class="info-card"><h3>हाई लिक्विडिटी</h3><p>कभी भी एंट्री और एग्जिट संभव है।</p></div>
-            </div>
-            <div class="yellow-note">
-                महत्वपूर्ण नोट: बिना किसी रणनीति के ट्रेडिंग करना जोखिम भरा है। SMC सीखकर आप प्रोफेशनल बन सकते हैं।
-            </div>
-        </div>
-        <div class="disclaimer">
-            <b>RISK WARNING:</b> Trading involves high risk. All content is for educational purposes only. Raj Trader is not responsible for any losses.
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="paidcourse.html">Courses</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<header>
+    <h1>Forex Trading by Raj Trader</h1>
+    <p>Hansraj Saini - Smart Money Concept (SMC) Specialist</p>
+</header>
+
+<div class="container">
+    <div class="section-box">
+        <h2>Forex Trading क्या है?</h2>
+        <p>फॉरेक्स (Foreign Exchange) दुनिया का सबसे बड़ा वित्तीय बाजार है जहाँ अलग-अलग देशों की करेंसी पेयर्स (जैसे EUR/USD) में ट्रेडिंग की जाती है। यह मार्केट हफ्ते में 5 दिन और 24 घंटे खुला रहता है।</p>
+        
+        <div class="yellow-note">
+            महत्वपूर्ण नोट: बिना किसी सही रणनीति और ज्ञान के ट्रेडिंग करना जोखिम भरा हो सकता है। SMC सीखकर आप मार्केट के बड़े प्लेयर्स (Banks) के साथ ट्रेड करना सीख सकते हैं।
         </div>
     </div>
-    <div style="margin: 20px 0;">
-        <p style="font-size: 0.8rem; color: #94a3b8;">Home Page Visits</p>
-        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhansrajsaini525.github.io&count_bg=%2338BDF8&title_bg=%231E293B&icon=chart-line.svg&title=Visits">
+
+    <div class="disclaimer">
+        <b>RISK WARNING:</b> फॉरेक्स ट्रेडिंग में वित्तीय जोखिम शामिल है। इस वेबसाइट पर दी गई जानकारी केवल शिक्षा (Educational Purposes) के लिए है। किसी भी निवेश से पहले अपने वित्तीय सलाहकार से चर्चा करें।
     </div>
-    <footer style="padding: 20px; color: #64748b;">© 2026 Raj Trader | Hansraj Saini</footer>
+</div>
+
+<div style="margin: 30px 0;">
+    <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 5px;">Home Page Visits</p>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhansrajsaini525.github.io&count_bg=%2338BDF8&title_bg=%231E293B&icon=chart-line.svg&title=Visits" alt="Hits">
+</div>
+
+<footer>
+    © 2026 Raj Trader | Hansraj Saini (Ralawata, Rajasthan)
+</footer>
+
 </body>
 </html>
