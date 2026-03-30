@@ -3,79 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Checkout - Raj Trader</title>
+    <title>Premium SMC Courses - Raj Trader</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --bg: #0f172a; --card: #1e293b; --blue: #38bdf8;
             --pink: #f43f5e; --yellow: #ffff00; --green: #25d366;
+            --text: #f8fafc;
         }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; margin: 0; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); margin: 0; }
         
-        nav { background: #1e293b; padding: 15px; display: flex; justify-content: center; gap: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        nav { background: #1e293b; padding: 15px; display: flex; justify-content: center; gap: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; padding: 8px 15px; border-radius: 5px; }
+        nav a:hover { background: var(--blue); color: #000; }
 
-        .checkout-container { max-width: 500px; margin: 40px auto; padding: 20px; }
-        
-        .payment-card {
+        .container { max-width: 1100px; margin: 40px auto; padding: 20px; }
+        .header-title { text-align: center; margin-bottom: 50px; }
+        .header-title h1 { color: var(--blue); font-size: 2.5rem; margin: 0; }
+        .discount-banner { color: var(--pink); font-weight: bold; letter-spacing: 1px; }
+
+        /* Course Grid */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .course-card {
             background: var(--card);
             border-radius: 25px;
             padding: 30px;
             text-align: center;
             border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .price-badge {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--blue);
-            padding: 10px 20px;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .timer-box {
-            font-size: 2.5rem;
-            font-family: monospace;
-            color: var(--pink);
-            margin: 15px 0;
-            background: rgba(244, 63, 94, 0.1);
-            padding: 10px;
-            border-radius: 15px;
-        }
-
-        .qr-frame {
-            background: white;
-            padding: 15px;
-            border-radius: 20px;
-            margin: 20px auto;
-            width: 220px;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-        }
-        .qr-frame img { width: 100%; border-radius: 10px; }
-
-        .btn-whatsapp {
-            background: var(--green);
-            color: white;
-            text-decoration: none;
-            padding: 18px;
-            border-radius: 12px;
-            display: block;
-            font-weight: bold;
-            font-size: 1.1rem;
             transition: 0.3s;
-            border: none;
-            width: 100%;
-            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
-        .btn-whatsapp:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
+        .course-card:hover { transform: translateY(-10px); border-color: var(--blue); }
 
-        .steps { text-align: left; margin-top: 25px; font-size: 0.85rem; color: #94a3b8; }
-        .steps li { margin-bottom: 8px; }
+        .promo-badge {
+            background: var(--pink);
+            color: white;
+            padding: 5px 30px;
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            transform: rotate(45deg);
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
 
-        #expired-msg { color: var(--pink); display: none; font-weight: bold; margin-top: 20px; }
+        .old-price { text-decoration: line-through; color: #64748b; font-size: 1.1rem; margin-right: 10px; }
+        .new-price { color: var(--yellow); font-size: 2rem; font-weight: 800; }
+        
+        .timer-box { font-size: 1.8rem; color: var(--pink); font-family: monospace; margin: 15px 0; display: none; }
+        
+        .qr-frame { background: white; padding: 15px; border-radius: 20px; margin: 15px auto; width: 180px; display: none; }
+        .qr-frame img { width: 100%; }
+
+        .btn-buy { background: var(--blue); color: #000; border: none; padding: 15px; border-radius: 12px; font-weight: bold; width: 100%; cursor: pointer; font-size: 1rem; margin-top: 15px; }
+        .btn-wa { background: var(--green); color: white; text-decoration: none; padding: 12px; border-radius: 12px; display: none; font-weight: bold; margin-top: 10px; }
+
+        footer { text-align: center; padding: 50px; color: #64748b; }
     </style>
 </head>
 <body>
@@ -87,59 +76,98 @@
     <a href="contact.html">Contact</a>
 </nav>
 
-<div class="checkout-container">
-    <div class="payment-card">
-        <div class="price-badge">Price Action Mastery PDF - ₹299</div>
-        
-        <p style="margin: 0; color: #94a3b8;">Payment Window Ends In:</p>
-        <div id="timer" class="timer-box">05:00</div>
+<div class="container">
+    <div class="header-title">
+        <h1>SMC Mastery Library</h1>
+        <p class="discount-banner"><i class="fas fa-bolt"></i> LIMITED TIME: 30% FLAT DISCOUNT APPLIED <i class="fas fa-bolt"></i></p>
+    </div>
 
-        <div class="qr-frame" id="qrContainer">
-            <img src="qrhansraj.png.jpeg" alt="Raj Trader QR">
-            <p style="color: #000; font-size: 0.7rem; font-weight: bold; margin-top: 5px;">HANSRAJ SAINI</p>
+    <div class="course-grid">
+        
+        <div class="course-card">
+            <div class="promo-badge">30% OFF</div>
+            <i class="fas fa-book-open" style="font-size: 2.5rem; color: var(--blue);"></i>
+            <h3>SMC Basic PDF</h3>
+            <p>Liquidity, Order Blocks aur Market Structure ke fundamentals.</p>
+            <div class="pricing">
+                <span class="old-price">₹427</span>
+                <span class="new-price">₹299</span>
+            </div>
+            <button class="btn-buy" onclick="startCheckout('basic', 299)">Buy Now</button>
+            <div id="timer-basic" class="timer-box">05:00</div>
+            <div id="qr-basic" class="qr-frame"><img src="qrhansraj.png.jpeg"></div>
+            <a id="wa-basic" href="#" class="btn-wa">I HAVE PAID - SEND SCREENSHOT</a>
         </div>
 
-        <div id="expired-msg">Oops! Time khatam ho gaya. Page refresh karein.</div>
+        <div class="course-card" style="border: 1px solid var(--pink);">
+            <div class="promo-badge">30% OFF</div>
+            <i class="fas fa-crown" style="font-size: 2.5rem; color: var(--pink);"></i>
+            <h3>SMC Advanced PDF</h3>
+            <p>Institutional Traps, Advanced Entries aur Pro Analysis.</p>
+            <div class="pricing">
+                <span class="old-price">₹712</span>
+                <span class="new-price">₹499</span>
+            </div>
+            <button class="btn-buy" onclick="startCheckout('advanced', 499)">Buy Now</button>
+            <div id="timer-advanced" class="timer-box">05:00</div>
+            <div id="qr-advanced" class="qr-frame"><img src="qrhansraj.png.jpeg"></div>
+            <a id="wa-advanced" href="#" class="btn-wa">I HAVE PAID - SEND SCREENSHOT</a>
+        </div>
 
-        <button onclick="sendWA()" class="btn-whatsapp" id="waBtn">
-            <i class="fab fa-whatsapp"></i> I HAVE PAID - GET PDF
-        </button>
+        <div class="course-card" style="background: linear-gradient(145deg, #1e293b, #0f172a); border: 2px solid var(--yellow);">
+            <div class="promo-badge" style="background: var(--yellow); color: black;">BEST VALUE</div>
+            <i class="fas fa-layer-group" style="font-size: 2.5rem; color: var(--yellow);"></i>
+            <h3>Mastery Combo</h3>
+            <p>Basic + Advanced (Dono PDFs ek saath). Sabse behtar bachat!</p>
+            <div class="pricing">
+                <span class="old-price">₹999</span>
+                <span class="new-price">₹699</span>
+            </div>
+            <button class="btn-buy" onclick="startCheckout('combo', 699)" style="background: var(--yellow);">Buy Combo Now</button>
+            <div id="timer-combo" class="timer-box">05:00</div>
+            <div id="qr-combo" class="qr-frame"><img src="qrhansraj.png.jpeg"></div>
+            <a id="wa-combo" href="#" class="btn-wa">I HAVE PAID - SEND SCREENSHOT</a>
+        </div>
 
-        <ul class="steps">
-            <li>1. Upar diye gaye QR ko scan karke ₹299 pay karein.</li>
-            <li>2. Payment ka screenshot lein.</li>
-            <li>3. "I HAVE PAID" button par click karke screenshot bhejein.</li>
-            <li>4. Screenshot milte hi PDF aapko WhatsApp par bhej di jayegi.</li>
-        </ul>
     </div>
 </div>
 
+<footer>
+    © 2026 Raj Trader | Hansraj Saini | SMC & Price Action Specialist
+</footer>
+
 <script>
-    let time = 300;
-    const timerEl = document.getElementById('timer');
-    const waBtn = document.getElementById('waBtn');
-    const qrContainer = document.getElementById('qrContainer');
-    const expiredMsg = document.getElementById('expired-msg');
+    function startCheckout(id, price) {
+        // Hide all buttons first
+        document.querySelectorAll('.btn-buy').forEach(b => b.style.display = 'block');
+        document.querySelectorAll('.timer-box, .qr-frame, .btn-wa').forEach(e => e.style.display = 'none');
 
-    const countdown = setInterval(() => {
-        let mins = Math.floor(time / 60);
-        let secs = time % 60;
-        secs = secs < 10 ? '0' + secs : secs;
-        timerEl.innerHTML = `0${mins}:${secs}`;
-        
-        if (time <= 0) {
-            clearInterval(countdown);
-            qrContainer.style.opacity = "0.1";
-            waBtn.style.display = "none";
-            expiredMsg.style.display = "block";
-            timerEl.innerHTML = "00:00";
-        }
-        time--;
-    }, 1000);
+        // Show current course elements
+        const btn = event.target;
+        btn.style.display = 'none';
+        document.getElementById(`timer-${id}`).style.display = 'block';
+        document.getElementById(`qr-${id}`).style.display = 'block';
+        document.getElementById(`wa-${id}`).style.display = 'block';
 
-    function sendWA() {
-        const msg = encodeURIComponent("Namaste Raj Trader, maine Price Action PDF ke liye ₹299 pay kar diye hain. Ye raha mera screenshot. Kripya PDF bhej dein.");
-        window.location.href = `https://wa.me/918000651656?text=${msg}`;
+        // Setup WA Link
+        const msg = encodeURIComponent(`Namaste Raj Trader, maine ${id} PDF ke liye ₹${price} pay kar diye hain. Ye raha mera screenshot.`);
+        document.getElementById(`wa-${id}`).href = `https://wa.me/918000651656?text=${msg}`;
+
+        // Timer Logic
+        let time = 300;
+        const timerEl = document.getElementById(`timer-${id}`);
+        const countdown = setInterval(() => {
+            let mins = Math.floor(time / 60);
+            let secs = time % 60;
+            secs = secs < 10 ? '0' + secs : secs;
+            timerEl.innerHTML = `0${mins}:${secs}`;
+            if (time <= 0) {
+                clearInterval(countdown);
+                document.getElementById(`qr-${id}`).style.opacity = "0.2";
+                timerEl.innerHTML = "Expired";
+            }
+            time--;
+        }, 1000);
     }
 </script>
 
