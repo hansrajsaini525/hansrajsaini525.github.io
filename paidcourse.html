@@ -3,101 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy Course - Raj Trader</title>
+    <title>Secure Checkout - Raj Trader</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --bg: #0f172a; --card: #1e293b; --blue: #38bdf8;
             --pink: #f43f5e; --yellow: #ffff00; --green: #25d366;
         }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; margin: 0; text-align: center; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; margin: 0; }
         
-        nav { background: #1e293b; padding: 15px; display: flex; justify-content: center; gap: 20px; }
-        nav a { color: white; text-decoration: none; font-weight: bold; }
+        nav { background: #1e293b; padding: 15px; display: flex; justify-content: center; gap: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
 
-        .container { max-width: 600px; margin: 40px auto; padding: 20px; }
-        .course-box { background: var(--card); padding: 30px; border-radius: 20px; border: 2px solid var(--blue); }
+        .checkout-container { max-width: 500px; margin: 40px auto; padding: 20px; }
         
-        .timer { font-size: 2rem; color: var(--pink); font-weight: bold; margin: 20px 0; display: none; }
-        
-        .qr-area { background: white; padding: 20px; border-radius: 15px; margin: 20px 0; display: none; }
-        .qr-area img { width: 200px; }
+        .payment-card {
+            background: var(--card);
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
 
-        .btn { padding: 15px 30px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; margin-top: 10px; }
-        .btn-pay { background: var(--blue); color: #000; }
-        .btn-download { background: var(--green); color: white; display: none; text-decoration: none; }
+        .price-badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--blue);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
 
-        .instruction { font-size: 0.9rem; color: #94a3b8; margin-top: 10px; }
+        .timer-box {
+            font-size: 2.5rem;
+            font-family: monospace;
+            color: var(--pink);
+            margin: 15px 0;
+            background: rgba(244, 63, 94, 0.1);
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        .qr-frame {
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            margin: 20px auto;
+            width: 220px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+        .qr-frame img { width: 100%; border-radius: 10px; }
+
+        .btn-whatsapp {
+            background: var(--green);
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 12px;
+            display: block;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+        .btn-whatsapp:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
+
+        .steps { text-align: left; margin-top: 25px; font-size: 0.85rem; color: #94a3b8; }
+        .steps li { margin-bottom: 8px; }
+
+        #expired-msg { color: var(--pink); display: none; font-weight: bold; margin-top: 20px; }
     </style>
 </head>
 <body>
 
 <nav>
     <a href="index.html">Home</a>
-    <a href="paidcourse.html">Paid Course</a>
-    <a href="about.html">About Me</a>
+    <a href="paidcourse.html">Courses</a>
+    <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
 </nav>
 
-<div class="container">
-    <div class="course-box">
-        <i class="fas fa-file-pdf" style="font-size: 3rem; color: var(--yellow);"></i>
-        <h2>Price Action Mastery PDF</h2>
-        <p>Price: <span style="color: var(--yellow); font-size: 1.5rem;">₹299</span></p>
+<div class="checkout-container">
+    <div class="payment-card">
+        <div class="price-badge">Price Action Mastery PDF - ₹299</div>
+        
+        <p style="margin: 0; color: #94a3b8;">Payment Window Ends In:</p>
+        <div id="timer" class="timer-box">05:00</div>
 
-        <button id="startBtn" class="btn btn-pay" onclick="startPayment()">Pay Now to Download</button>
-
-        <div id="paymentSection">
-            <div id="timer" class="timer">05:00</div>
-            
-            <div id="qrBox" class="qr-area">
-                <img src="qrhansraj.png.jpeg" alt="QR Code">
-                <p style="color: black; font-weight: bold;">Scan & Pay ₹299</p>
-                <p style="color: red; font-size: 0.8rem;">Note: Screenshot WhatsApp par zaroor bhejein!</p>
-            </div>
-
-            <a href="YOUR_GOOGLE_DRIVE_PDF_LINK_HERE" id="downloadBtn" class="btn btn-download" target="_blank">
-                <i class="fas fa-download"></i> Download PDF Now
-            </a>
+        <div class="qr-frame" id="qrContainer">
+            <img src="qrhansraj.png.jpeg" alt="Raj Trader QR">
+            <p style="color: #000; font-size: 0.7rem; font-weight: bold; margin-top: 5px;">HANSRAJ SAINI</p>
         </div>
 
-        <p class="instruction" id="footerNote">Payment ke baad ye page band na karein.</p>
+        <div id="expired-msg">Oops! Time khatam ho gaya. Page refresh karein.</div>
+
+        <button onclick="sendWA()" class="btn-whatsapp" id="waBtn">
+            <i class="fab fa-whatsapp"></i> I HAVE PAID - GET PDF
+        </button>
+
+        <ul class="steps">
+            <li>1. Upar diye gaye QR ko scan karke ₹299 pay karein.</li>
+            <li>2. Payment ka screenshot lein.</li>
+            <li>3. "I HAVE PAID" button par click karke screenshot bhejein.</li>
+            <li>4. Screenshot milte hi PDF aapko WhatsApp par bhej di jayegi.</li>
+        </ul>
     </div>
 </div>
 
 <script>
-    let timeLeft = 300; // 5 minutes in seconds
-    let timerElement = document.getElementById('timer');
-    let downloadBtn = document.getElementById('downloadBtn');
-    let qrBox = document.getElementById('qrBox');
-    let startBtn = document.getElementById('startBtn');
+    let time = 300;
+    const timerEl = document.getElementById('timer');
+    const waBtn = document.getElementById('waBtn');
+    const qrContainer = document.getElementById('qrContainer');
+    const expiredMsg = document.getElementById('expired-msg');
 
-    function startPayment() {
-        startBtn.style.display = 'none';
-        qrBox.style.display = 'block';
-        timerElement.style.display = 'block';
+    const countdown = setInterval(() => {
+        let mins = Math.floor(time / 60);
+        let secs = time % 60;
+        secs = secs < 10 ? '0' + secs : secs;
+        timerEl.innerHTML = `0${mins}:${secs}`;
         
-        let countdown = setInterval(function() {
-            let minutes = Math.floor(timeLeft / 60);
-            let seconds = timeLeft % 60;
-            
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-            timerElement.innerHTML = `${minutes}:${seconds}`;
-            
-            if (timeLeft <= 0) {
-                clearInterval(countdown);
-                timerElement.innerHTML = "Time Expired!";
-                qrBox.style.opacity = "0.3";
-                alert("Time up! Agar aapne pay kar diya hai toh WhatsApp par message karein.");
-            } else {
-                timeLeft--;
-            }
-            
-            // Artificial delay: Payment confirm hone ka button 10 second baad dikhate hain
-            if (timeLeft == 290) { 
-                downloadBtn.style.display = 'block';
-            }
-        }, 1000);
+        if (time <= 0) {
+            clearInterval(countdown);
+            qrContainer.style.opacity = "0.1";
+            waBtn.style.display = "none";
+            expiredMsg.style.display = "block";
+            timerEl.innerHTML = "00:00";
+        }
+        time--;
+    }, 1000);
+
+    function sendWA() {
+        const msg = encodeURIComponent("Namaste Raj Trader, maine Price Action PDF ke liye ₹299 pay kar diye hain. Ye raha mera screenshot. Kripya PDF bhej dein.");
+        window.location.href = `https://wa.me/918000651656?text=${msg}`;
     }
 </script>
 
