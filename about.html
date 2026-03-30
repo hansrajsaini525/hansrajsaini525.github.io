@@ -7,11 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg: #0f172a;
-            --card: #1e293b;
-            --blue: #38bdf8;
-            --pink: #f43f5e;
-            --text: #f8fafc;
+            --bg: #0f172a; --card: #1e293b; --blue: #38bdf8;
+            --pink: #f43f5e; --text: #f8fafc;
         }
 
         body {
@@ -19,16 +16,13 @@
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
-            line-height: 1.8;
+            line-height: 1.6;
+            text-align: center;
         }
 
-        /* Navigation Bar */
         nav {
             background: #1e293b;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            padding: 15px;
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -41,76 +35,99 @@
             font-weight: bold;
             padding: 8px 15px;
             border-radius: 5px;
-            transition: 0.3s;
         }
 
         nav a:hover { background: var(--blue); color: #000; }
 
-        .container { max-width: 800px; margin: 50px auto; padding: 20px; }
-
-        .about-card {
-            background: var(--card);
+        .about-container {
+            max-width: 800px;
+            margin: 60px auto;
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border-top: 5px solid var(--blue);
+            background: var(--card);
+            border-radius: 30px;
+            border-top: 6px solid var(--blue);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
         }
 
-        h1 { color: var(--blue); font-size: 2.2rem; margin-bottom: 20px; }
-        h2 { color: var(--pink); font-size: 1.5rem; margin-top: 30px; }
+        .profile-icon {
+            font-size: 5rem;
+            color: var(--blue);
+            margin-bottom: 20px;
+        }
 
-        .highlight { color: var(--blue); font-weight: bold; }
+        h1 { color: var(--blue); font-size: 2.2rem; margin-bottom: 10px; }
+        .sub-title { color: var(--pink); font-weight: bold; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; }
 
-        .mission-box {
+        .bio-text {
+            text-align: left;
+            margin-top: 30px;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .tag {
             background: rgba(56, 189, 248, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            border-left: 4px solid var(--blue);
+            color: var(--blue);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: 1px solid var(--blue);
         }
 
-        footer { text-align: center; padding: 40px; font-size: 0.9rem; color: #64748b; }
+        .visitor-section { margin-top: 50px; padding: 20px; border-top: 1px solid #334155; }
+        footer { padding: 30px; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
 <nav>
     <a href="index.html">Home</a>
-    <a href="paidcourse.html">Paid Course</a>
-    <a href="about.html">About Me</a>
+    <a href="paidcourse.html">Courses</a>
+    <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
 </nav>
 
-<div class="container">
-    <div class="about-card">
-        <h1>नमस्ते, मैं हूँ हंसराज सैनी (Raj Trader)</h1>
-        <p>मैं एक प्रोफेशनल <span class="highlight">Forex Trader</span> और <span class="highlight">SMC (Smart Money Concepts) Expert</span> हूँ। पिछले कई वर्षों से वित्तीय बाजारों (Financial Markets) का गहन अध्ययन करने के बाद, मैंने "Raj Trader" की शुरुआत की ताकि मैं भारतीय ट्रेडर्स को ट्रेडिंग के उस पहलू से रूबरू करा सकूँ जो अक्सर आम किताबों में नहीं मिलता।</p>
+<div class="about-container">
+    <div class="profile-icon">
+        <i class="fas fa-user-tie"></i>
+    </div>
+    
+    <h1>नमस्ते, मैं हूँ हंसraj Saini</h1>
+    <div class="sub-title">Raj Trader | SMC Expert</div>
 
-        <h2>मेरा अनुभव (My Experience)</h2>
-        <p>ट्रेडिंग केवल चार्ट देखना नहीं, बल्कि मार्केट की लिक्विडिटी (Liquidity) और बड़े संस्थानों (Institutional Players) के फुटप्रिंट्स को समझना है। मैंने अपना करियर चार्ट एनालिसिस, रिस्क मैनेजमेंट और ट्रेडिंग साइकोलॉजी को मास्टर करने में समर्पित किया है।</p>
-
-        <h2>हमारा मिशन (Our Mission)</h2>
-        <div class="mission-box">
-            "मेरा लक्ष्य है कि मैं हर उस ट्रेडर की मदद करूँ जो रिटेल ट्रैप (Retail Traps) में फँसकर अपना नुकसान कर रहा है। मैं आपको वह एडवांस <span class="highlight">SMC Mastery</span> सिखाना चाहता हूँ जिससे आप मार्केट के बड़े मूव्स को पहचान सकें।"
-        </div>
-
-        <h2>मैं आपकी कैसे मदद कर सकता हूँ?</h2>
-        <ul>
-            <li><b>Advanced SMC Training:</b> ऑर्डर ब्लॉक और लिक्विडिटी की गहरी समझ।</li>
-            <li><b>Real-world Strategy:</b> केवल थ्योरी नहीं, बल्कि लाइव मार्केट में काम करने वाली रणनीतियाँ।</li>
-            <li><b>Psychology Coaching:</b> ट्रेडिंग के दौरान अपने डर और लालच पर काबू पाना।</li>
-        </ul>
-
-        <p style="margin-top: 30px;">अगर आप भी एक प्रोफेशनल ट्रेडर बनने का सपना देखते हैं, तो आइए इस सफर में मेरे साथ जुड़िए।</p>
+    <div class="bio-text">
+        <p>मैं एक प्रोफेशनल Forex Trader हूँ और पिछले कुछ समय से <b>Smart Money Concepts (SMC)</b> और <b>Price Action</b> की मदद से मार्केट को एनालाइज कर रहा हूँ।</p>
         
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="contact.html" style="background: var(--pink); color: white; padding: 12px 25px; text-decoration: none; border-radius: 50px; font-weight: bold;">मुझसे जुड़ें</a>
-        </div>
+        <p>मेरा उद्देश्य भारतीय ट्रेडर्स को यह सिखाना है कि कैसे बड़े इंस्टीट्यूशन्स (Banks & Operators) मार्केट को मूव करते हैं। मैं केवल चार्ट्स नहीं पढ़ता, बल्कि मार्केट की साइकोलॉजी को समझता हूँ।</p>
+        
+        <p>अगर आप भी रिटेल ट्रेडर की तरह नुकसान करना बंद करना चाहते हैं और एक "Smart Trader" की तरह सोचना चाहते हैं, तो आप मेरे कोर्सेज के माध्यम से अपनी ट्रेडिंग जर्नी शुरू कर सकते हैं।</p>
+    </div>
+
+    <div class="skill-tags">
+        <span class="tag">Forex Analysis</span>
+        <span class="tag">SMC Mastery</span>
+        <span class="tag">Price Action</span>
+        <span class="tag">Market Psychology</span>
+        <span class="tag">Risk Management</span>
     </div>
 </div>
 
+<div class="visitor-section">
+    <p style="font-size: 0.8rem; color: #94a3b8;">Profile Views</p>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frajtrader.github.io%2Fabout&count_bg=%23F43F5E&title_bg=%231E293B&icon=user.svg&title=Views" alt="Hits">
+</div>
+
 <footer>
-    © 2026 Raj Trader | Hansraj Saini | Expert Forex Guidance
+    © 2026 Raj Trader | Hansraj Saini (Ralawata, Rajasthan)
 </footer>
 
 </body>
