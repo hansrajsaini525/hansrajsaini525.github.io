@@ -6,45 +6,184 @@
     <title>Raj Trader - Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --bg: #0f172a; --card: #1e293b; --blue: #38bdf8; --pink: #f43f5e; --yellow: #ffff00; --text: #f8fafc; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); margin: 0; line-height: 1.6; text-align: center; }
-        nav { background: #1e293b; padding: 15px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; gap: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-        nav a { color: white; text-decoration: none; font-weight: bold; padding: 8px 15px; border-radius: 5px; }
+        :root {
+            --bg: #0f172a; --card: #1e293b; --blue: #38bdf8;
+            --pink: #f43f5e; --yellow: #ffff00; --text: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #1e293b;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
         nav a:hover { background: var(--blue); color: #000; }
-        header { padding: 60px 20px; border-bottom: 4px solid var(--pink); background: linear-gradient(135deg, #1e293b, #0f172a); }
-        .container { max-width: 900px; margin: 30px auto; padding: 20px; text-align: left; }
-        .section-box { background: var(--card); padding: 30px; border-radius: 20px; margin-bottom: 30px; }
-        .yellow-note { background: var(--yellow); color: #000; padding: 20px; border-radius: 12px; font-weight: bold; margin: 20px 0; }
-        footer { padding: 40px; background: #020617; margin-top: 50px; }
+
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--pink);
+        }
+
+        h1 { font-size: 2.2rem; color: var(--blue); margin: 0; text-transform: uppercase; }
+
+        .container { max-width: 900px; margin: 30px auto; padding: 20px; }
+
+        .section-box {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h2 { color: var(--blue); border-bottom: 2px solid #334155; padding-bottom: 10px; }
+
+        /* Forex Details Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 4px solid var(--pink);
+            text-align: left;
+        }
+
+        .info-card h3 { color: var(--blue); margin-top: 0; font-size: 1.1rem; }
+
+        /* Yellow Highlighted Note */
+        .yellow-note {
+            background-color: var(--yellow);
+            color: #000;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .cta-btn {
+            background: var(--pink);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* Disclaimer & Counter Styling */
+        .disclaimer-box {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px dashed #475569;
+            border-radius: 15px;
+            background: rgba(15, 23, 42, 0.8);
+            text-align: left;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        footer { text-align: center; padding: 40px; background: #020617; }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="paidcourse.html">Courses</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-    <header>
-        <h1>Forex Trading by Raj Trader</h1>
-        <p>Hansraj Saini - Smart Money Concept (SMC) Specialist</p>
-    </header>
-    <div class="container">
-        <div class="section-box">
-            <h2>Forex Trading क्या है?</h2>
-            <p>यह दुनिया का सबसे बड़ा वित्तीय बाजार है जहाँ करेंसी पेयर्स में ट्रेड होता है।</p>
-            <div class="yellow-note">
-                महत्वपूर्ण नोट: बिना किसी रणनीति के ट्रेडिंग करना जोखिम भरा है। SMC सीखकर आप संस्थानों के साथ ट्रेड कर सकते हैं।
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="paidcourse.html">Courses</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<header>
+    <h1>Forex Trading by Raj Trader</h1>
+    <p>Hansraj Saini - Smart Money Concept Specialist</p>
+    <a href="paidcourse.html" class="cta-btn">Learn SMC Now</a>
+</header>
+
+<div class="container">
+    
+    <div class="section-box">
+        <h2><i class="fas fa-chart-line"></i> Forex Trading क्या है?</h2>
+        <p>फॉरेक्स (Foreign Exchange) दुनिया का सबसे बड़ा मार्केट है जहाँ करेंसी पेयर्स में ट्रेड किया जाता है।</p>
+        
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>1. करेंसी पेयर्स</h3>
+                <p>यहाँ ट्रेडिंग हमेशा पेयर्स में होती है, जैसे EUR/USD। आप एक करेंसी खरीदते हैं और दूसरी बेचते हैं।</p>
+            </div>
+            <div class="info-card">
+                <h3>2. 24/5 मार्केट</h3>
+                <p>यह मार्केट हफ्ते में 5 दिन और 24 घंटे खुला रहता है, जिससे आप कभी भी ट्रेड कर सकते हैं।</p>
+            </div>
+            <div class="info-card">
+                <h3>3. हाई लिक्विडिटी</h3>
+                <p>ट्रिलियन डॉलर्स का डेली वॉल्यूम होने के कारण आप कभी भी एंट्री और एग्जिट ले सकते हैं।</p>
+            </div>
+            <div class="info-card">
+                <h3>4. लेवरेज (Leverage)</h3>
+                <p>ब्रोकर की मदद से आप कम बैलेंस के साथ भी मार्केट में बड़ी पोजीशन ले सकते हैं।</p>
             </div>
         </div>
+
+        <div class="yellow-note">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>महत्वपूर्ण नोट: बिना किसी रणनीति (Strategy) के ट्रेडिंग करना एक जुआ है। SMC सीखकर आप प्रोफेशनल तरीके से पैसा कमा सकते हैं।</span>
+        </div>
     </div>
-    <div style="max-width:800px; margin:20px auto; color:#94a3b8; font-size:0.8rem; border:1px dashed #334155; padding:15px;">
-        <b>RISK WARNING:</b> Trading involves high risk. Content is for educational purposes only.
-    </div>
-    <div style="margin:20px 0;">
-        <p style="font-size:0.8rem; color:#94a3b8;">Home Visits</p>
-        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frajtrader.github.io%2Fhome&count_bg=%2338BDF8&title_bg=%231E293B&title=Visits">
-    </div>
-    <footer>© 2026 Raj Trader | Hansraj Saini</footer>
+
+</div>
+
+<div class="disclaimer-box">
+    <h4 style="color: #f43f5e; margin-top: 0;">RISK WARNING / जोखिम की चेतावनी</h4>
+    <p>फॉरेक्स ट्रेडिंग में भारी वित्तीय जोखिम शामिल है। "Raj Trader" द्वारा प्रदान किए गए कोर्स केवल शिक्षा के लिए हैं। निवेश करने से पहले अपने सलाहकार से सलाह जरूर लें।</p>
+</div>
+
+<div style="margin-bottom: 30px; text-align: center;">
+    <p style="font-size: 0.8rem; color: #94a3b8;">Home Visits</p>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frajtrader.github.io%2Fhome&count_bg=%2338BDF8&title_bg=%231E293B&icon=chart-line.svg&title=Visits">
+</div>
+
+<footer>
+    <p>© 2026 Raj Trader | Hansraj Saini</p>
+</footer>
+
 </body>
 </html>
